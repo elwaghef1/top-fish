@@ -396,6 +396,22 @@ nav ul li a.active::after {
   color: var(--primary-color);
 }
 
+/* Tables for size standards */
+.size-tables {
+  margin-top: 2rem;
+}
+
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  table-layout: fixed;
+}
+
+.size-table caption {
+  display: none;
+}
+
 /* Title placed above each size table */
 .size-table-title {
   background: var(--secondary-color);
@@ -406,17 +422,29 @@ nav ul li a.active::after {
   border-top-right-radius: var(--border-radius);
   text-align: center;
   margin: 0;
+  width: 100%;
 }
+
 .size-table th,
 .size-table td {
   border: 1px solid #e0e6ef;
-  padding: 0.5rem;
+  padding: 0.8rem 0.5rem;
   text-align: center;
+  word-wrap: break-word;
 }
+
 .size-table th {
   background: var(--light-color);
   font-weight: 600;
   color: var(--primary-color);
+}
+
+.size-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.size-table tbody tr:hover {
+  background-color: #e9ecef;
 }
 
 /* Accordion component */
@@ -812,61 +840,101 @@ body[data-page="about"] section.container {
   height: 250px;
   border-radius: var(--border-radius);
   object-fit: cover;
+  background-color: white;
 }
 
-/* Services Grid - New Modern Design */
-.services-grid {
+/* Products grid for Featured Species */
+.products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-top: 2rem;
 }
 
-.service-card {
-  background: #ffffff;
-  padding: 2rem;
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  min-height: 450px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-card:hover {
+.product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
-.service-icon {
-  width: 80px;
-  height: 80px;
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background-color: white;
+}
+
+.product-card .info {
   background: var(--primary-color);
-  border-radius: 50%;
+  color: #ffffff;
+  padding: 1.2rem;
+  width: 100%;
+  flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-  transition: background 0.3s ease;
+  flex-direction: column;
 }
 
-.service-card:hover .service-icon {
-  background: var(--accent-color);
+.product-card .info .fish-header {
+  font-size: 0.7rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
 }
 
-.service-icon i {
-  font-size: 2rem;
+.product-card .info h4 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-card .info .fish-details {
+  flex: 1;
+}
+
+.product-card .info .scientific-name,
+.product-card .info .commercial-name {
+  margin-bottom: 0.8rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
   color: #ffffff;
 }
 
-.service-card h3 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  font-weight: 600;
+.product-card .info .scientific-name em {
+  font-style: italic;
+  color: #ffffff;
 }
 
-.service-card p {
-  color: #666;
-  line-height: 1.6;
+.product-card .info .size-weight {
+  margin-top: 1rem;
+}
+
+.product-card .info .size,
+.product-card .info .weight {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.product-card .info .size strong,
+.product-card .info .weight strong {
+  color: #ffffff;
 }
 
 /* Markets & Clients - New Modern Design with Image on Right */
@@ -963,6 +1031,15 @@ body[data-page="about"] section.container {
 
 /* Responsive Design for Markets & Clients */
 @media (max-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .product-card {
+    min-height: 420px;
+  }
+  
   .markets-clients-container {
     flex-direction: column;
     gap: 2rem;
@@ -979,6 +1056,37 @@ body[data-page="about"] section.container {
 }
 
 @media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .product-card {
+    min-height: auto;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .product-card img {
+    height: 180px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+  }
+  
+  .size-table {
+    font-size: 0.85rem;
+  }
+  
+  .size-table th,
+  .size-table td {
+    padding: 0.6rem 0.3rem;
+  }
+  
+  .size-table-title {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+  
   .markets-clients-content {
     gap: 2rem;
   }
