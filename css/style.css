@@ -1,0 +1,989 @@
+/*
+ * Custom stylesheet for the AFCO‑inspired demo site
+ *
+ * This design takes inspiration from the clean, modern look of the
+ * original pages while using original assets and copy. Colours,
+ * typography and spacing have been tuned to feel familiar to the
+ * reference site without reusing any proprietary material.
+ */
+
+:root {
+  /* Colour palette inspired by the Top Fish Trade logo */
+  /*
+   * The dark navy from the logo becomes our primary colour used for headers,
+   * footers and the nav bar. A slightly lighter shade forms the secondary
+   * hue for backgrounds and subtle elements, while the accent colour
+   * introduces a brighter blue used for buttons, links and highlights.
+   */
+  --primary-color: #0b2a75;     /* deep navy blue */
+  --secondary-color: #164a96;   /* medium ocean blue */
+  --accent-color: #2f7bd8;      /* vibrant blue highlight */
+  --light-color: #f5f8fc;       /* very light blue/grey background */
+  --text-color: #24344d;        /* dark slate text */
+  --heading-color: #0a214d;     /* dark heading colour */
+  --border-radius: 8px;         /* consistent rounded corners */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Header and navigation */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.top-bar {
+  background: var(--secondary-color);
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contact-info i {
+  margin-right: 0.3rem;
+  color: #ffffff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  gap: 3rem;
+}
+
+.navbar nav {
+  margin-left: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Logo image inside header */
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  color: var(--primary-color);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--accent-color);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+/* Language switch links */
+.lang-switch {
+  margin-left: auto;
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+.lang-switch a {
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+.lang-switch a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* Mobile navigation toggle */
+.toggle {
+  display: none;
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent-color);
+  color: #ffffff;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--secondary-color);
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.flex.reverse {
+  flex-direction: row-reverse;
+}
+
+.flex img {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: var(--heading-color);
+  font-weight: 600;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--accent-color);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Cards used throughout */
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  flex: 1 1 250px;
+  min-width: 250px;
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: var(--primary-color);
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card ul li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.card ul li::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+/* Services grid */
+.services {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 4rem 0;
+}
+
+.services .container {
+  max-width: 1200px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: background 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  background: var(--accent-color);
+}
+
+.service-icon i {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.service-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.service-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Enhanced Service Cards for Products Page */
+.service-features {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.service-features span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.service-features span i {
+  color: var(--accent-color);
+  font-size: 0.8rem;
+}
+
+.service-card:hover .service-features span {
+  color: var(--primary-color);
+}
+
+/* Title placed above each size table */
+.size-table-title {
+  background: var(--secondary-color);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  text-align: center;
+  margin: 0;
+}
+.size-table th,
+.size-table td {
+  border: 1px solid #e0e6ef;
+  padding: 0.5rem;
+  text-align: center;
+}
+.size-table th {
+  background: var(--light-color);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Accordion component */
+.accordion {
+  border: 1px solid #dddddd;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #dddddd;
+}
+
+.accordion-header {
+  background: var(--light-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accordion-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.accordion-header i {
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-header i {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  display: none;
+  padding: 1rem;
+  background: #ffffff;
+  font-size: 0.9rem;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+
+/* Contact page form */
+.contact-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+}
+
+.contact-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.contact-form form label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: var(--primary-color);
+}
+
+.contact-form form input,
+.contact-form form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #dddddd;
+  border-radius: var(--border-radius);
+  resize: vertical;
+}
+
+.contact-form form textarea {
+  grid-column: 1 / -1;
+  min-height: 120px;
+}
+
+.contact-form form button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 0.8rem 2rem;
+  background: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form form button:hover {
+  background: var(--secondary-color);
+}
+
+/* Contact info cards */
+.contact-info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-card {
+  flex: 1 1 250px;
+  min-width: 250px;
+  background: var(--primary-color);
+  color: #ffffff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.contact-card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.contact-card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+.footer {
+  background: var(--primary-color);
+  color: #ffffff;
+  padding: 2rem 1rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.footer-column {
+  flex: 1 1 250px;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--light-color);
+}
+
+.footer-column p,
+.footer-column li {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-column li i {
+  margin-right: 0.5rem;
+  color: var(--accent-color);
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.newsletter input[type="email"] {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.5rem;
+}
+
+.newsletter button {
+  background: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter button:hover {
+  background: var(--secondary-color);
+}
+
+/* Home page specific layouts */
+.services-bars {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.service-bar {
+  flex: 1 1 200px;
+  padding: 2rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* alternating backgrounds for service bars */
+.service-bar:nth-child(1) {
+  background: var(--primary-color);
+}
+.service-bar:nth-child(2) {
+  background: var(--secondary-color);
+}
+.service-bar:nth-child(3) {
+  background: var(--primary-color);
+}
+
+.service-bar h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.service-bar p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/*
+ * Interactive hover effects
+ *
+ * To enhance the user experience we add subtle animations on cards,
+ * product boxes and gallery items. Hovering over these elements
+ * gently lifts or scales them to communicate interactivity and
+ * modernity while staying true to the clean design aesthetic. Transitions
+ * are kept smooth and unobtrusive.
+ */
+
+/* Lift product cards on hover */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Lift service bars on hover */
+.service-bar {
+  transition: transform 0.3s ease;
+}
+.service-bar:hover {
+  transform: translateY(-5px);
+}
+
+/* Lift generic cards (about, partners etc.) on hover */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Scale gallery images slightly on hover */
+.gallery-grid img {
+  transition: transform 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/*
+ * Spacing and alignment improvements
+ *
+ * Add consistent vertical spacing between sections on all pages to
+ * improve readability. Each container section now has a top margin
+ * to separate it from the previous section. Adjust this value
+ * globally here rather than inline in HTML.
+ */
+section.container {
+  margin-top: 4rem;
+}
+
+/* Additional spacing for about pages */
+body[data-page="about"] section.container {
+  margin-top: 6rem;
+}
+
+/*
+ * Provide a neutral white background and padding around images
+ * in product cards (featured species and products pages). This
+ * enhances professionalism by isolating the subject from busy
+ * backgrounds. The border radius matches the card corners for
+ * consistency.
+ */
+.product-card img {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  width: 100%;
+  height: 250px; /* consistent height for uniformity */
+}
+
+/*
+ * Lightbox styles for gallery pages
+ *
+ * The lightbox overlay covers the full viewport with a dark
+ * semi‑transparent background. Navigation arrows allow the user
+ * to cycle through images and a close icon exits the overlay. The
+ * image itself scales responsively within the viewport.
+ */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+.lightbox .prev,
+.lightbox .next,
+.lightbox .close {
+  position: absolute;
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Font Awesome 6 Free', sans-serif;
+  font-weight: 900;
+}
+.lightbox .prev,
+.lightbox .next {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  padding: 0 1rem;
+}
+.lightbox .prev {
+  left: 1rem;
+}
+.lightbox .next {
+  right: 1rem;
+}
+.lightbox .close {
+  top: 1rem;
+  right: 1rem;
+  font-size: 3rem;
+}
+
+.partners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.partner {
+  text-align: center;
+}
+
+.partner i {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  /* Fix uneven gallery image heights by enforcing a consistent height.
+   * Combined with object-fit: cover this ensures all thumbnails align
+   * neatly in the grid without distortion.
+   */
+  height: 250px;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+}
+
+/* Services Grid - New Modern Design */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: background 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  background: var(--accent-color);
+}
+
+.service-icon i {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.service-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.service-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Markets & Clients - New Modern Design with Image on Right */
+.markets-clients-container {
+  display: flex;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.markets-clients-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.markets-image {
+  flex: 1;
+  position: sticky;
+  top: 2rem;
+}
+
+.markets-section h3,
+.clients-section h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.markets-section h3 i,
+.clients-section h3 i {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+.markets-section p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.market-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.market-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--accent-color);
+}
+
+.market-item i {
+  color: var(--accent-color);
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+.client-item {
+  padding: 0.8rem 1.2rem;
+  background: var(--primary-color);
+  color: #ffffff;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.client-item:hover {
+  background: var(--accent-color);
+}
+
+.markets-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design for Markets & Clients */
+@media (max-width: 992px) {
+  .markets-clients-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .markets-image {
+    position: static;
+    order: -1;
+  }
+  
+  .markets-image img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .markets-clients-content {
+    gap: 2rem;
+  }
+  
+  .clients-grid {
+    gap: 0.6rem;
+  }
+}
