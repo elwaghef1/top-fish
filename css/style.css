@@ -3519,368 +3519,175 @@ html {
   transform: translateY(-2px) scale(0.98);
 }
 
-/* ============================================
-   COMPREHENSIVE RESPONSIVE DESIGN
-   ============================================ */
+/* ========================================
+   RESPONSIVE DESIGN - SIMPLE & CLEAN
+   ======================================== */
 
-/* Extra Small Devices - Phones (320px - 479px) */
-@media (max-width: 479px) {
+/* MOBILE FIRST - BASE STYLES (0-768px) */
+@media (max-width: 768px) {
+  /* Container fixes */
   .container {
     padding: 0 1rem;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
-  .hero {
-    height: 60vh !important;
-    padding: 1rem 0.5rem;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
   }
   
-  .hero-content {
-    max-width: 100%;
-    text-align: center;
+  /* Hero section */
+  .hero {
+    height: 50vh;
+    padding: 2rem 0;
   }
   
   .hero-content h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     line-height: 1.2;
-    word-wrap: break-word;
+    margin-bottom: 1rem;
   }
   
   .hero-content p {
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
   
-  .btn {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.9rem;
-    width: auto;
-    display: inline-block;
+  /* Navigation mobile */
+  .toggle {
+    display: block !important;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
   }
   
-  /* Top bar adjustments */
-  .top-bar {
-    padding: 0.5rem 0;
-    overflow-x: hidden;
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
   }
   
-  .top-bar .container {
-    padding: 0 1rem;
+  nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
   
-  .contact-info {
+  nav ul {
     flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
+    padding: 1rem;
+    margin: 0;
   }
   
-  .contact-info div {
-    font-size: 0.8rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+  nav ul li {
+    width: 100%;
+    border-bottom: 1px solid #eee;
   }
   
-  /* Navigation */
-  .navbar {
-    padding: 0.5rem 1rem;
-    overflow-x: hidden;
+  nav ul li:last-child {
+    border-bottom: none;
   }
   
-  .logo img {
-    height: 35px;
+  nav ul li a {
+    display: block;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  /* Grid layouts mobile */
+  .about-cards,
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  /* Flex layouts mobile */
+  .flex {
+    flex-direction: column;
+  }
+  
+  .flex .image,
+  .flex .text {
+    width: 100%;
+  }
+  
+  /* Contact form mobile */
+  .contact-form {
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+  
+  .contact-form form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Footer mobile */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
   }
   
   /* Section titles */
   .section-title {
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    word-wrap: break-word;
-  }
-  
-  /* Cards grid */
-  .about-cards {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    width: 100%;
-  }
-  
-  .card {
-    padding: 1.5rem;
-    min-width: auto;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  /* Contact form */
-  .contact-form {
-    margin: 2rem auto;
-    padding: 1.5rem;
-    max-width: 100%;
-    width: 100%;
-  }
-  
-  .contact-form form {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-  
-  .contact-form form input,
-  .contact-form form textarea {
-    padding: 0.75rem;
-    font-size: 0.9rem;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  /* Footer */
-  .footer-container {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-  }
-  
-  .footer-column {
-    min-width: auto;
-    width: 100%;
-  }
-  
-  /* Flex layouts */
-  .flex {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .flex.reverse {
-    flex-direction: column;
-  }
-  
-  .flex .image,
-  .flex .text {
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-  
-  .flex .image img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-  
-  /* Products grid */
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0;
-  }
-  
-  /* Prevent any overflow */
-  section {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
-  }
-  
-  /* Ensure images don't cause overflow */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  /* Text content */
-  p, h1, h2, h3, h4, h5, h6 {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* Small Devices - Phones (480px - 767px) */
-@media (min-width: 480px) and (max-width: 767px) {
-  .container {
-    padding: 0 1.5rem;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
-  .hero {
-    height: 65vh !important;
-    width: 100%;
-    max-width: 100vw;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.2rem;
-    word-wrap: break-word;
-  }
-  
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-  
-  .btn {
-    padding: 0.8rem 2rem;
-  }
-  
-  .logo img {
-    height: 40px;
-  }
-  
-  .section-title {
     font-size: 1.8rem;
     text-align: center;
-    word-wrap: break-word;
   }
   
-  .about-cards {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    width: 100%;
+  /* Top bar mobile */
+  .top-bar .container {
+    flex-direction: column;
+    gap: 0.5rem;
   }
   
-  .card {
-    padding: 2rem;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .contact-form {
-    margin: 2.5rem auto;
-    padding: 2rem;
-    max-width: 100%;
-    width: 100%;
-  }
-  
-  .contact-form form {
-    grid-template-columns: 1fr;
+  .contact-info {
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
   }
   
-  /* Flex layouts */
-  .flex {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .flex.reverse {
-    flex-direction: column;
-  }
-  
-  .flex .image,
-  .flex .text {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-  
-  .flex .image img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-  }
-  
-  /* Products grid */
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0;
-  }
-  
-  /* Prevent overflow */
-  section {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
+  .contact-info div {
+    font-size: 0.9rem;
   }
 }
 
-/* Medium Devices - Tablets (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
+/* TABLETTE (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
   .container {
-    padding: 0 1.5rem;
-  }
-  
-  .hero {
-    height: 70vh !important;
+    padding: 0 2rem;
   }
   
   .hero-content h1 {
     font-size: 2.5rem;
   }
   
-  .hero-content p {
-    font-size: 1.2rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
   .about-cards {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
   
   .contact-form form {
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-  }
-  
-  /* Navigation adjustments */
-  nav ul li a {
-    padding: 0.75rem 1rem;
-    font-size: 0.95rem;
-  }
-  
-  /* Products grid */
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
-  .product-card {
-    max-width: none;
-  }
-  
-  /* Flex layouts */
-  .flex {
-    align-items: center;
-    gap: 2rem;
-  }
-  
-  .flex .image,
-  .flex .text {
-    width: 50%;
   }
 }
 
-/* Large Devices - Desktop (1024px - 1199px) */
-@media (min-width: 1024px) and (max-width: 1199px) {
-  .container {
-    max-width: 960px;
-    padding: 0 2rem;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.8rem;
-  }
-  
-  .about-cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-  
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
-
-/* Extra Large Devices - Large Desktop (1200px+) */
-@media (min-width: 1200px) {
+/* DESKTOP (1025px+) */
+@media (min-width: 1025px) {
   .container {
     max-width: 1200px;
     padding: 0 2rem;
@@ -3899,89 +3706,15 @@ html {
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }
-}
-
-/* Mobile-First Navigation */
-@media (max-width: 767px) {
-  .navbar {
-    position: relative;
+  
+  .flex {
+    align-items: center;
+    gap: 3rem;
   }
   
-  .toggle {
-    display: block;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--primary-color);
-    z-index: 1001;
-    padding: 0.5rem;
-    background: none;
-    border: none;
-  }
-  
-  nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    border-radius: 0 0 8px 8px;
-  }
-  
-  nav.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  nav ul {
-    flex-direction: column;
-    padding: 1rem;
-    margin: 0;
-    list-style: none;
-    display: flex;
-  }
-  
-  nav ul.show {
-    display: flex;
-  }
-  
-  nav ul li {
-    width: 100%;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  
-  nav ul li:last-child {
-    border-bottom: none;
-  }
-  
-  nav ul li a {
-    display: block;
-    padding: 1rem 0;
-    text-align: left;
-    border-bottom: none;
-    transition: color 0.3s ease;
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-  
-  nav ul li a:hover,
-  nav ul li a.active {
-    color: var(--accent-color);
-    background: none;
-  }
-  
-  /* Language switch mobile */
-  .lang-switch {
-    margin-top: 1rem;
-    text-align: center;
-    padding-top: 1rem;
-    border-top: 1px solid #f0f0f0;
+  .flex .image,
+  .flex .text {
+    width: 50%;
   }
 }
 

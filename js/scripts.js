@@ -14,20 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile navigation toggle
+  // Mobile navigation toggle - SIMPLE VERSION
   const toggle = document.querySelector('.toggle');
   const nav = document.querySelector('nav');
-  const navMenu = document.querySelector('nav ul');
   
-  if (toggle && nav && navMenu) {
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
       nav.classList.toggle('active');
-      navMenu.classList.toggle('show');
-      toggle.classList.toggle('active');
       
-      // Toggle hamburger animation
+      // Change icon
       if (nav.classList.contains('active')) {
         toggle.innerHTML = '<i class="fa-solid fa-times"></i>';
       } else {
@@ -37,23 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Close menu when clicking on a link
     const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
         nav.classList.remove('active');
-        navMenu.classList.remove('show');
-        toggle.classList.remove('active');
         toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
       });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-        nav.classList.remove('active');
-        navMenu.classList.remove('show');
-        toggle.classList.remove('active');
-        toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-      }
     });
   }
 
